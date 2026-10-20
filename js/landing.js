@@ -1,5 +1,6 @@
 async function init() {
     const statsEl = document.getElementById('stats');
+    wireJoinButtons();
     if (!statsEl) return;
 
     try {
@@ -20,6 +21,19 @@ async function init() {
     } catch (err) {
         statsEl.innerHTML = '';
     }
+}
+
+function wireJoinButtons() {
+    const url = window.SITE_CONFIG && window.SITE_CONFIG.formUrl;
+    document.querySelectorAll('[data-join]').forEach(a => {
+        if (url) {
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener';
+        } else {
+            a.style.display = 'none';
+        }
+    });
 }
 
 init();

@@ -221,6 +221,7 @@ function bindEvents() {
 
 async function init() {
     els.results = $('resultsContainer');
+    wireJoinButtons();
     els.search = $('searchInput');
     els.year = $('yearSelect');
     els.role = $('roleSelect');
@@ -266,3 +267,16 @@ async function init() {
 }
 
 init();
+
+function wireJoinButtons() {
+    const url = window.SITE_CONFIG && window.SITE_CONFIG.formUrl;
+    document.querySelectorAll('[data-join]').forEach(a => {
+        if (url) {
+            a.href = url;
+            a.target = '_blank';
+            a.rel = 'noopener';
+        } else {
+            a.style.display = 'none';
+        }
+    });
+}
