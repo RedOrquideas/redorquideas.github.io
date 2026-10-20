@@ -3,104 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Orquídeas · Directorio de Mujeres en la Ciencia</title>
-    <meta name="description" content="Directorio de las beneficiarias del Programa Orquídeas MinCiencias: perfiles profesionales y proyectos de investigadoras colombianas.">
+    <title>Red Orquídeas · Mujeres en la Ciencia</title>
+    <meta name="description" content="Red Orquídeas reúne a las mujeres beneficiarias del Programa Orquídeas del Ministerio de Ciencia, Tecnología e Innovación, destacando su liderazgo científico en Colombia.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/landing.css">
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="header-inner container">
-            <div class="brand">
+    <header class="nav">
+        <div class="container nav-inner">
+            <a class="brand" href="index.html">
                 <span class="brand-mark"><i class="fa-solid fa-seedling"></i></span>
-                <div class="brand-text">
+                <span class="brand-text">
                     <span class="brand-name">Red Orquídeas</span>
-                    <span class="brand-tag">Mujeres en la Ciencia · Colombia</span>
-                </div>
-            </div>
-            <button class="filter-toggle" id="filterToggle" type="button" aria-expanded="false">
-                <i class="fa-solid fa-sliders"></i> Filtros y búsqueda
-                <i class="fa-solid fa-chevron-down" id="filterIcon"></i>
-            </button>
-        </div>
-
-        <div class="filters-bar" id="filtersBar">
-            <div class="container">
-                <div class="filters-grid">
-                    <div class="field">
-                        <label for="searchInput">Búsqueda general</label>
-                        <div class="input-icon">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="searchInput" placeholder="Nombre, proyecto...">
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label for="yearSelect">Año</label>
-                        <select id="yearSelect"><option value="">Todos</option></select>
-                    </div>
-                    <div class="field">
-                        <label for="roleSelect">Categoría / Rol</label>
-                        <select id="roleSelect"><option value="">Todas</option></select>
-                    </div>
-                    <div class="field">
-                        <label for="keywordSelect">Palabra clave</label>
-                        <select id="keywordSelect"><option value="">Todas</option></select>
-                    </div>
-                    <div class="field view-toggle">
-                        <div class="btn-group" role="group" aria-label="Vista">
-                            <button class="view-btn active" id="btnGrid" data-view="grid" type="button"><i class="fa-solid fa-table-cells-large"></i> Cuadrícula</button>
-                            <button class="view-btn" id="btnList" data-view="list" type="button"><i class="fa-solid fa-list"></i> Lista</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="filters-meta">
-                    <span><strong id="countDisplay">0</strong> resultados</span>
-                    <button class="link-btn" id="resetBtn" type="button">Limpiar filtros</button>
-                </div>
-            </div>
+                    <span class="brand-tag">Mujeres en la Ciencia</span>
+                </span>
+            </a>
+            <nav class="nav-links">
+                <a href="#programa">El programa</a>
+                <a href="#convocatorias">Convocatorias</a>
+                <a class="nav-cta" href="directorio.html">Explorar el directorio</a>
+            </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <h1>Directorio Red Orquídeas</h1>
-            <p>Reúne los perfiles profesionales y los proyectos de las beneficiarias del Programa Orquídeas MinCiencias, destacando su liderazgo científico y su contribución al desarrollo del país. Facilita la conexión entre investigadoras, sector productivo y actores del ecosistema de innovación.</p>
-            <div class="stats" id="stats"></div>
+        <div class="container hero-inner">
+            <div class="hero-copy">
+                <span class="eyebrow">Mujeres en la Ciencia · Colombia</span>
+                <h1>Red Orquídeas</h1>
+                <p class="lead">
+                    Una red que reúne a las mujeres beneficiarias del Programa Orquídeas del Ministerio de Ciencia, Tecnología e Innovación: investigadoras, doctoras y jóvenes científicas que transforman el país desde el conocimiento.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn-primary" href="directorio.html"><i class="fa-solid fa-magnifying-glass"></i> Explorar el directorio</a>
+                    <a class="btn-ghost" href="#programa">Conoce el programa</a>
+                </div>
+                <div class="stats" id="stats"></div>
+            </div>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="orbit">
+                    <span class="dot dot-1"></span>
+                    <span class="dot dot-2"></span>
+                    <span class="dot dot-3"></span>
+                    <div class="core"><i class="fa-solid fa-seedling"></i></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <main class="container">
-        <div class="results" id="resultsContainer"></div>
-        <div class="no-results" id="noResults" hidden>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <h3>No se encontraron resultados</h3>
-            <p>Intenta ajustar los filtros o la búsqueda.</p>
+    <section class="section" id="programa">
+        <div class="container narrow">
+            <h2 class="section-title">Sobre el programa</h2>
+            <p>
+                El <strong>Programa Orquídeas: Mujeres en la Ciencia</strong> busca aportar a la reducción de las brechas sociales, académicas y económicas en materia de género desde la ciencia, la tecnología y la innovación.
+            </p>
+            <p>
+                Promueve el fortalecimiento de las vocaciones científicas en jóvenes investigadoras, la formación de alto nivel de mujeres y su inclusión, permanencia y avance dentro del Sistema Nacional de Ciencia, Tecnología e Innovación (SNCTI).
+            </p>
+            <div class="cards-row">
+                <div class="info-card">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <h3>Doctoras</h3>
+                    <p>Doctoras colombianas vinculadas a una entidad del SNCTI que lideran proyectos de investigación.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>Jóvenes investigadoras</h3>
+                    <p>Estudiantes de pregrado o recién egresadas que se forman junto a las doctoras.</p>
+                </div>
+                <div class="info-card">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                    <h3>Trabajo colaborativo</h3>
+                    <p>Juntas desarrollan proyectos de I+D+i en el marco de una estancia postdoctoral.</p>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <button class="back-to-top" id="btnBackToTop" type="button" aria-label="Volver arriba">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <div class="modal" id="imgModal" aria-hidden="true">
-        <div class="modal-backdrop" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" type="button" data-close aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
-            <img src="" id="modalImgDisplay" alt="">
+    <section class="section section-alt" id="convocatorias">
+        <div class="container">
+            <h2 class="section-title">Convocatorias</h2>
+            <p class="section-sub">Tres ediciones que reflejan la evolución del programa hacia la diversificación de enfoques y las tecnologías de frontera.</p>
+            <div class="cards-row">
+                <div class="conv-card">
+                    <span class="conv-year">2025</span>
+                    <h3>Convocatoria 963</h3>
+                    <p>Incorporó un banco adicional de financiables en áreas estratégicas como inteligencia artificial y tecnologías cuánticas.</p>
+                </div>
+                <div class="conv-card">
+                    <span class="conv-year">2024</span>
+                    <h3>Convocatoria 948</h3>
+                    <p>Incorporación del enfoque diferencial e interseccional, con priorización del Eje Pacífico.</p>
+                </div>
+                <div class="conv-card">
+                    <span class="conv-year">2023</span>
+                    <h3>Convocatoria 935</h3>
+                    <p>Ejes de Bioeconomía y Territorio, Derecho Humano a la Alimentación y Ciencia para la Paz, priorizando territorios PDET y ZOMAC.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container narrow">
+            <h2>Descubre el talento científico femenino del país</h2>
+            <p>Explora los perfiles y proyectos de las beneficiarias, busca por año, rol o palabra clave y conecta con la ciencia hecha por mujeres.</p>
+            <a class="btn-primary btn-lg" href="directorio.html"><i class="fa-solid fa-table-cells-large"></i> Entrar al directorio</a>
+        </div>
+    </section>
 
     <footer class="site-footer">
         <div class="container">
-            <p>Red Orquídeas · Directorio de Mujeres en la Ciencia</p>
+            <p>Red Orquídeas · Mujeres en la Ciencia</p>
             <p class="muted">Información proveniente del Programa Orquídeas del Ministerio de Ciencia, Tecnología e Innovación.</p>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/landing.js"></script>
 </body>
 </html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio · Red Orquídeas</title>
+    <meta name="description" content="Directorio de las beneficiarias del Programa Orquídeas MinCiencias: perfiles profesionales y proyectos de investigadoras colombianas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner container">
+            <a class="brand" href="index.html">
+                <span class="brand-mark"><i class="fa-solid fa-seedling"></i></span>
+                <span class="brand-text">
+                    <span class="brand-name">Red Orquídeas</span>
+                    <span class="brand-tag">Mujeres en la Ciencia · Colombia</span>
+                </span>
+            </a>
+            <div class="header-actions">
+                <a class="home-link" href="index.html"><i class="fa-solid fa-arrow-left"></i> Inicio</a>
+                <button class="filter-toggle" id="filterToggle" type="button" aria-expanded="false">
+                    <i class="fa-solid fa-sliders"></i> Filtros y búsqueda
+                    <i class="fa-solid fa-chevron-down" id="filterIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="filters-bar" id="filtersBar">
+            <div class="container">
+                <div class="filters-grid">
+                    <div class="field">
+                        <label for="searchInput">Búsqueda general</label>
+                        <div class="input-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="searchInput" placeholder="Nombre, proyecto...">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="yearSelect">Año</label>
+                        <select id="yearSelect"><option value="">Todos</option></select>
+                    </div>
+                    <div class="field">
+                        <label for="roleSelect">Categoría / Rol</label>
+                        <select id="roleSelect"><option value="">Todas</option></select>
+                    </div>
+                    <div class="field">
+                        <label for="keywordSelect">Palabra clave</label>
+                        <select id="keywordSelect"><option value="">Todas</option></select>
+                    </div>
+                    <div class="field view-toggle">
+                        <div class="btn-group" role="group" aria-label="Vista">
+                            <button class="view-btn active" id="btnGrid" data-view="grid" type="button"><i class="fa-solid fa-table-cells-large"></i> Cuadrícula</button>
+                            <button class="view-btn" id="btnList" data-view="list" type="button"><i class="fa-solid fa-list"></i> Lista</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="filters-meta">
+                    <span><strong id="countDisplay">0</strong> resultados</span>
+                    <button class="link-btn" id="resetBtn" type="button">Limpiar filtros</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Directorio Red Orquídeas</h1>
+            <p>Reúne los perfiles profesionales y los proyectos de las beneficiarias del Programa Orquídeas MinCiencias, destacando su liderazgo científico y su contribución al desarrollo del país. Facilita la conexión entre investigadoras, sector productivo y actores del ecosistema de innovación.</p>
+            <div class="stats" id="stats"></div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="results" id="resultsContainer"></div>
+        <div class="no-results" id="noResults" hidden>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>No se encontraron resultados</h3>
+            <p>Intenta ajustar los filtros o la búsqueda.</p>
+        </div>
+    </main>
+
+    <button class="back-to-top" id="btnBackToTop" type="button" aria-label="Volver arriba">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <div class="modal" id="imgModal" aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-content">
+            <button class="modal-close" type="button" data-close aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            <img src="" id="modalImgDisplay" alt="">
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Red Orquídeas · Directorio de Mujeres en la Ciencia</p>
+            <p class="muted">Información proveniente del Programa Orquídeas del Ministerio de Ciencia, Tecnología e Innovación.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
