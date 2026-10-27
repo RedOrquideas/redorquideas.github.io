@@ -1,7 +1,7 @@
 :root {
-    --primary: #6B46C1;
-    --primary-dark: #553C9A;
-    --accent: #D53F8C;
+    --primary: #7C0799;
+    --primary-dark: #5D0674;
+    --accent: #104710;
     --bg: #FFFFFF;
     --bg-alt: #F7FAFC;
     --text: #2D3748;
@@ -61,6 +61,12 @@ h1, h2, h3 {
     font-size: 1.25rem;
 }
 
+.brand-logo {
+    height: 44px;
+    width: auto;
+    display: block;
+}
+
 .brand-text { display: flex; flex-direction: column; line-height: 1.2; }
 
 .brand-name {
@@ -94,7 +100,7 @@ h1, h2, h3 {
 
 /* Hero */
 .hero {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark) 55%, #3b2a72);
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark) 55%, #3a0449);
     color: #fff;
     overflow: hidden;
 }
@@ -148,7 +154,7 @@ h1, h2, h3 {
 }
 
 .btn-primary { background: var(--accent); color: #fff; }
-.btn-primary:hover { background: #c0367d; transform: translateY(-2px); }
+.btn-primary:hover { background: #0b350b; transform: translateY(-2px); }
 
 .btn-ghost { background: rgba(255, 255, 255, 0.12); color: #fff; border: 1px solid rgba(255, 255, 255, 0.35); }
 .btn-ghost:hover { background: rgba(255, 255, 255, 0.2); }
@@ -212,7 +218,7 @@ h1, h2, h3 {
     width: 96px;
     height: 96px;
     border-radius: 24px;
-    background: linear-gradient(135deg, var(--accent), #9b2c63);
+    background: linear-gradient(135deg, var(--accent), #0b350b);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,7 +236,7 @@ h1, h2, h3 {
 
 .dot-1 { top: -11px; left: 50%; transform: translateX(-50%); }
 .dot-2 { bottom: 20px; right: -11px; }
-.dot-3 { bottom: 20px; left: -11px; background: #E9D8FD; }
+.dot-3 { bottom: 20px; left: -11px; background: #A9D0A9; }
 
 /* Sections */
 .section { padding: 4.5rem 0; }
@@ -317,7 +323,7 @@ h1, h2, h3 {
 }
 
 .cta-section .btn-primary { background: #fff; color: var(--primary-dark); }
-.cta-section .btn-primary:hover { background: #f0ecfa; }
+.cta-section .btn-primary:hover { background: #e9f3e9; }
 
 /* Footer */
 .site-footer {
@@ -326,6 +332,13 @@ h1, h2, h3 {
     padding: 2rem 0;
     text-align: center;
     font-size: 0.9rem;
+}
+
+.footer-logo {
+    height: 56px;
+    width: auto;
+    display: block;
+    margin: 0 auto 0.75rem;
 }
 
 .site-footer p { margin: 0.2rem 0; }
