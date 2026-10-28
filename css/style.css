@@ -24,23 +24,6 @@
     font-size: 1.05rem;
 }
 
-.dir-features {
-    list-style: none;
-    margin: 1.5rem 0 0;
-    padding: 0;
-    border-top: 1px solid var(--line);
-}
-.dir-features li {
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--line);
-    font-size: 0.95rem;
-    color: var(--muted);
-}
-.dir-features li::before {
-    content: "— ";
-    color: var(--green);
-}
-
 /* Módulo de actualización */
 .dir-update {
     background: var(--purple);

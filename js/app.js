@@ -6,7 +6,7 @@
         years: [],
         roles: [],
         keywords: [],
-        view: 'grid',
+        view: 'list',
         query: '',
         year: '',
         role: '',

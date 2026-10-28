@@ -45,15 +45,23 @@
             if (v) lines.push(p[1] + ': ' + v);
         });
         lines.push('', 'Autorización de tratamiento de datos: Sí');
+        lines.push('Autorización de publicación pública: Sí');
         return lines.join('\n');
     }
 
     form.addEventListener('submit', function (e) {
         var autoriza = document.getElementById('fAutorizacion');
+        var publica = document.getElementById('fPublicacion');
         if (!autoriza || !autoriza.checked) {
             e.preventDefault();
             if (hint) hint.textContent = 'Debes autorizar el tratamiento de datos para enviar la solicitud.';
             autoriza.focus();
+            return;
+        }
+        if (!publica || !publica.checked) {
+            e.preventDefault();
+            if (hint) hint.textContent = 'Debes aceptar que tu información será de acceso público para enviar la solicitud.';
+            publica.focus();
             return;
         }
 
@@ -65,10 +73,10 @@
         }
 
         e.preventDefault();
-        var email = cfg.email || 'redorquideasctei@gmail.com';
+        var recipients = [cfg.email, cfg.adminEmail].filter(Boolean).join(',');
         var subject = 'Solicitud de actualización' + (id ? ' — registro ' + id : '');
         var body = buildBody();
-        var mailto = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        var mailto = 'mailto:' + recipients + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
         if (hint) hint.textContent = 'Se abrirá tu correo con la solicitud. Adjunta tu fotografía al mensaje si es necesario.';
         window.location.href = mailto;
     });

@@ -98,7 +98,9 @@
                         <div class="form-field">
                             <label for="fFoto">Nueva fotografía (opcional)</label>
                             <input type="file" id="fFoto" name="foto" accept="image/jpeg,image/png,image/webp">
-                            <p class="form-hint">Formatos admitidos: JPG, PNG o WebP. La fotografía se revisa antes de publicarse.</p>
+                            <p class="form-hint">
+                                Formatos: JPG, PNG o WebP · Peso máximo: 5 MB · Recomendado: al menos 800 × 800 px, con buena iluminación, fondo neutro y el rostro centrado. La fotografía se revisa antes de publicarse.
+                            </p>
                         </div>
                         <div class="form-field form-check">
                             <input type="checkbox" id="fEliminarFoto" name="eliminar_foto">
@@ -176,8 +178,13 @@
                         <legend>Autorización y envío</legend>
                         <div class="form-field form-check">
                             <input type="checkbox" id="fAutorizacion" name="autorizacion" required>
-                            <label for="fAutorizacion">Autorizo el tratamiento de los datos suministrados con la finalidad de actualizar el directorio de Red OCTeI.</label>
+                            <label for="fAutorizacion">Autorizo el tratamiento de mis datos personales, conforme a la Ley 1581 de 2012, para la actualización y publicación de mi perfil en el directorio de Red OCTeI.</label>
                         </div>
+                        <div class="form-field form-check">
+                            <input type="checkbox" id="fPublicacion" name="publicacion" required>
+                            <label for="fPublicacion">Entiendo y acepto que la información que solicito publicar (nombre, perfil profesional, enlaces académicos y contacto autorizado) será de acceso público.</label>
+                        </div>
+                        <p class="form-hint">Puedes solicitar la rectificación, actualización o supresión de tus datos en cualquier momento escribiendo a redorquideasctei@gmail.com.</p>
                         <p class="form-hint" id="formHint"></p>
                         <button type="submit" class="btn btn-primary">Enviar solicitud</button>
                     </fieldset>
