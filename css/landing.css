@@ -272,8 +272,8 @@
 
 /* ---------- Diagrama de organización ---------- */
 .diagrama {
-    max-width: 720px;
-    margin: 0 auto 3rem;
+    max-width: 880px;
+    margin: 0 auto 2rem;
 }
 .diagrama svg { width: 100%; height: auto; display: block; }
 
@@ -326,6 +326,13 @@
 }
 .contacto-social a:hover { color: var(--purple); }
 .contacto-social i { width: 1.5rem; color: var(--purple); }
+
+.contacto-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contacto-visual img { width: 100%; max-width: 340px; height: auto; opacity: 0.9; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
