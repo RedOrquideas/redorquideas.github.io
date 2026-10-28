@@ -11,13 +11,7 @@
     }
 
     function render(doc) {
-        var cfg = window.SITE_CONFIG || {};
-        var email = cfg.email;
-        var subject = 'Solicitud de actualización de información — ' + doc.name + ' (registro ' + doc.id + ')';
-        var mailto = email ? 'mailto:' + email + '?subject=' + encodeURIComponent(subject) : null;
-        // Formulario de actualización: si existe un formulario autorizado se usa; en caso contrario, correo.
-        var updateHref = cfg.updateFormUrl || mailto;
-        var updateTarget = cfg.updateFormUrl ? ' target="_blank" rel="noopener"' : '';
+        var updateHref = 'actualizar-informacion.html?perfil=' + doc.id;
 
         var img = doc.has_image
             ? '<img src="' + esc(doc.image_src) + '" alt="Fotografía de ' + esc(doc.name) + '" referrerpolicy="no-referrer" onerror="onImgError(this, \'' + esc(doc.initials) + '\')">'
@@ -30,7 +24,7 @@
         var actions = '';
         if (doc.cv_link) actions += '<a class="btn btn-outline" href="' + esc(doc.cv_link) + '" target="_blank" rel="noopener">CvLAC</a>';
         if (doc.email) actions += '<a class="btn btn-primary" href="mailto:' + esc(doc.email) + '">Contactar</a>';
-        if (updateHref) actions += '<a class="btn btn-outline" href="' + esc(updateHref) + '"' + updateTarget + '>Actualizar información</a>';
+        actions += '<a class="btn btn-outline" href="' + esc(updateHref) + '">Actualizar este perfil</a>';
 
         return '<div class="container perfil">' +
             '<a class="back-link" href="directorio.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver al directorio</a>' +
