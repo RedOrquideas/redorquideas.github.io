@@ -172,27 +172,111 @@
 .principio h3 { font-size: 1rem; margin-bottom: 0.4rem; }
 .principio p { margin: 0; color: var(--muted); font-size: 0.92rem; }
 
-/* ---------- Estructura ---------- */
-.estructura-grid {
+/* ---------- Red organizacional ---------- */
+.red-viz {
+    position: relative;
+    margin: 0;
+}
+
+.red-lines {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: -1rem;
+}
+
+.red-conns .red-line {
+    fill: none;
+    stroke: #7C0799;
+    stroke-width: 1.5;
+}
+.red-conns .red-line--alt {
+    stroke: #104710;
+}
+
+.red-pulse { fill: #7C0799; }
+.red-pulse--green { fill: #104710; }
+
+.red-node {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: opacity .5s ease, transform .5s ease;
+}
+.red-viz.is-visible .red-node {
+    opacity: 1;
+    animation: nodePulse 3.5s ease-in-out infinite;
+}
+.red-viz.is-visible #redNode0 { transition-delay: .1s; animation-delay: .1s; }
+.red-viz.is-visible #redNode1 { transition-delay: .3s; animation-delay: .3s; }
+.red-viz.is-visible #redNode2 { transition-delay: .5s; animation-delay: .5s; }
+.red-viz.is-visible #redNode3 { transition-delay: .7s; animation-delay: .7s; }
+
+.red-node.active { opacity: 1; }
+
+@keyframes nodePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.18); }
+}
+
+.red-line { transition: stroke-width .25s ease, opacity .25s ease; }
+.red-viz.is-visible .red-line { opacity: .7; }
+.red-line.active { opacity: 1; stroke-width: 2.5; }
+
+.red-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--line);
+    gap: 1.25rem;
+    margin-top: 1.25rem;
 }
-.estructura-item {
-    padding: 2rem 1.75rem 0 0;
-    border-left: 1px solid var(--line);
+
+.red-card {
+    border: 1px solid #000000;
+    border-top: 3px solid #7C0799;
+    background: #FFFFFF;
+    padding: 1.25rem 1.25rem 1.4rem;
+    transition: background .2s ease, color .2s ease;
+    cursor: default;
 }
-.estructura-item:first-child { border-left: 0; }
-.estructura-item .rol {
+.red-card--green { border-top-color: #104710; }
+.red-card--previsto { border-top-style: dashed; border-top-width: 2px; }
+
+.red-rol {
+    display: block;
     font-family: var(--font-display);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--purple);
     margin-bottom: 0.5rem;
 }
-.estructura-item h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
-.estructura-item p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+.red-card--green .red-rol { color: #104710; }
+
+.red-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.red-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+.red-card:hover,
+.red-card:focus,
+.red-card:focus-visible {
+    background: #7C0799;
+    color: #FFFFFF;
+    outline: none;
+}
+.red-card:hover h3,
+.red-card:focus h3 { color: #FFFFFF; }
+.red-card:hover p,
+.red-card:focus p { color: #FFFFFF; }
+.red-card:hover .red-rol,
+.red-card:focus .red-rol { color: #FFFFFF; }
+
+.red-card--green:hover,
+.red-card--green:focus { background: #104710; }
+.red-card--green:hover .red-rol,
+.red-card--green:focus .red-rol { color: #FFFFFF; }
+
+@media (prefers-reduced-motion: reduce) {
+    .red-viz.is-visible .red-node { animation: none; }
+}
 
 /* ---------- Contexto ---------- */
 .contexto-grid {
@@ -270,17 +354,6 @@
     margin-top: 0.5rem;
 }
 
-/* ---------- Diagrama de organización ---------- */
-.diagrama {
-    max-width: 880px;
-    margin: 0 auto 2rem;
-}
-.diagrama svg { width: 100%; height: auto; display: block; }
-
-@media (max-width: 640px) {
-    .diagrama { display: none; }
-}
-
 /* ---------- Contacto ---------- */
 .contacto-grid {
     display: grid;
@@ -343,18 +416,17 @@
     .mv-grid { grid-template-columns: 1fr; }
     .mv-col + .mv-col { border-left: 0; padding-left: 0; padding-top: 2rem; border-top: 1px solid var(--line); }
     .principios-grid { grid-template-columns: repeat(2, 1fr); }
-    .estructura-grid { grid-template-columns: repeat(2, 1fr); }
-    .estructura-item:nth-child(3) { border-left: 0; }
     .contexto-grid { grid-template-columns: 1fr; }
     .acta-inner { grid-template-columns: 1fr; }
     .contacto-grid { grid-template-columns: 1fr; }
     .media-grid { grid-template-columns: 1fr; }
+    .red-grid { grid-template-columns: repeat(2, 1fr); }
+    .red-lines { display: none; }
 }
 
 @media (max-width: 600px) {
     .objetivos-list { grid-template-columns: 1fr; row-gap: 1.75rem; }
     .objetivo { grid-template-columns: 1fr; gap: 0.5rem; }
     .principios-grid { grid-template-columns: 1fr; }
-    .estructura-grid { grid-template-columns: 1fr; }
-    .estructura-item { border-left: 0 !important; border-top: 1px solid var(--line); padding-top: 1.5rem; padding-left: 0; }
+    .red-grid { grid-template-columns: 1fr; gap: 1rem; }
 }

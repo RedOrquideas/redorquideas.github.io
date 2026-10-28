@@ -50,54 +50,49 @@
 
         <div class="page-main">
             <div class="container">
-                <div class="diagrama" role="img" aria-label="Diagrama de la estructura de la Red: la Asamblea, el Comité Directivo, los Comités de trabajo y los Nodos regionales, relacionados entre sí como una red de colaboración.">
-                    <svg viewBox="0 0 880 400" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="440" y1="220" x2="262" y2="118" stroke="#7C0799" stroke-width="1.25" />
-                        <line x1="440" y1="220" x2="618" y2="118" stroke="#7C0799" stroke-width="1.25" />
-                        <line x1="440" y1="220" x2="262" y2="298" stroke="#7C0799" stroke-width="1.25" />
-                        <line x1="440" y1="220" x2="618" y2="298" stroke="#7C0799" stroke-width="1.25" />
-
-                        <circle cx="440" cy="220" r="12" fill="#7C0799" />
-
-                        <circle cx="250" cy="110" r="22" fill="#FFFFFF" stroke="#7C0799" stroke-width="2" />
-                        <circle cx="630" cy="110" r="22" fill="#FFFFFF" stroke="#7C0799" stroke-width="2" />
-                        <circle cx="250" cy="290" r="22" fill="#104710" />
-                        <circle cx="630" cy="290" r="22" fill="#FFFFFF" stroke="#104710" stroke-width="2" stroke-dasharray="4 3" />
-
-                        <text x="250" y="158" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="15" font-weight="700">La Asamblea</text>
-                        <text x="250" y="176" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="11.5">Máxima instancia de decisión</text>
-
-                        <text x="630" y="158" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="15" font-weight="700">Comité Directivo</text>
-                        <text x="630" y="176" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="11.5">Articula y dinamiza la Red</text>
-
-                        <text x="250" y="338" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="15" font-weight="700">Comités de trabajo</text>
-                        <text x="250" y="356" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="11.5">Líneas temáticas y acciones</text>
-
-                        <text x="630" y="338" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="15" font-weight="700">Nodos regionales</text>
-                        <text x="630" y="356" text-anchor="middle" fill="#000000" font-family="Montserrat, sans-serif" font-size="11.5">Previstos</text>
+                <div class="red-viz" id="redViz" role="group" aria-label="Estructura de la Red OCTeI">
+                    <svg class="red-lines" viewBox="0 0 1200 90" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <g class="red-conns">
+                            <path class="red-line" data-conn="0" d="M 150 45 C 230 16 370 16 450 45" />
+                            <path class="red-line" data-conn="1" d="M 450 45 C 530 74 670 74 750 45" />
+                            <path class="red-line" data-conn="2" d="M 750 45 C 830 16 970 16 1050 45" />
+                            <path class="red-line red-line--alt" data-conn="3" d="M 450 45 C 600 20 900 20 1050 45" />
+                        </g>
+                        <g class="red-pulses">
+                            <circle class="red-pulse" r="4"><animateMotion dur="5s" repeatCount="indefinite" path="M 150 45 C 230 16 370 16 450 45" /></circle>
+                            <circle class="red-pulse" r="4"><animateMotion dur="6s" repeatCount="indefinite" path="M 450 45 C 530 74 670 74 750 45" /></circle>
+                            <circle class="red-pulse" r="4"><animateMotion dur="5s" repeatCount="indefinite" path="M 750 45 C 830 16 970 16 1050 45" /></circle>
+                            <circle class="red-pulse red-pulse--green" r="4"><animateMotion dur="7.5s" repeatCount="indefinite" path="M 450 45 C 600 20 900 20 1050 45" /></circle>
+                        </g>
+                        <g class="red-nodes">
+                            <circle class="red-node" id="redNode0" cx="150" cy="45" r="13" fill="#7C0799" />
+                            <circle class="red-node" id="redNode1" cx="450" cy="45" r="13" fill="#104710" />
+                            <circle class="red-node" id="redNode2" cx="750" cy="45" r="13" fill="#7C0799" />
+                            <circle class="red-node red-node--dashed" id="redNode3" cx="1050" cy="45" r="13" fill="#FFFFFF" stroke="#104710" stroke-width="2.5" />
+                        </g>
                     </svg>
-                </div>
 
-                <div class="estructura-grid">
-                    <div class="estructura-item">
-                        <span class="rol">Instancia de decisión</span>
-                        <h3>La Asamblea</h3>
-                        <p>Máxima instancia de decisión de la Red.</p>
-                    </div>
-                    <div class="estructura-item">
-                        <span class="rol">Articulación</span>
-                        <h3>Comité Directivo</h3>
-                        <p>Articula, promueve y dinamiza el funcionamiento de la Red.</p>
-                    </div>
-                    <div class="estructura-item">
-                        <span class="rol">Líneas de trabajo</span>
-                        <h3>Comités de trabajo</h3>
-                        <p>Desarrollan líneas temáticas y acciones según las PIIOM, los ODS y los intereses de las miembros.</p>
-                    </div>
-                    <div class="estructura-item">
-                        <span class="rol">Territorio</span>
-                        <h3>Nodos regionales</h3>
-                        <p>Se conforman cuando la Asamblea así lo decida.</p>
+                    <div class="red-grid">
+                        <article class="red-card" tabindex="0" data-node="0">
+                            <span class="red-rol">Máxima instancia de decisión</span>
+                            <h3>La Asamblea</h3>
+                            <p>Define las decisiones de la Red y orienta su funcionamiento.</p>
+                        </article>
+                        <article class="red-card red-card--green" tabindex="0" data-node="1">
+                            <span class="red-rol">Articulación</span>
+                            <h3>Comité Directivo</h3>
+                            <p>Articula, promueve y dinamiza el funcionamiento de la Red.</p>
+                        </article>
+                        <article class="red-card" tabindex="0" data-node="2">
+                            <span class="red-rol">Líneas de trabajo</span>
+                            <h3>Comités de trabajo</h3>
+                            <p>Desarrollan líneas temáticas y acciones según las PIIOM, los ODS y los intereses de las miembros.</p>
+                        </article>
+                        <article class="red-card red-card--green red-card--previsto" tabindex="0" data-node="3">
+                            <span class="red-rol">Territorio</span>
+                            <h3>Nodos regionales</h3>
+                            <p>Instancias previstas; se conforman cuando la Asamblea así lo decida.</p>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -147,5 +142,6 @@
     <script src="js/config.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/common.js"></script>
+    <script src="js/organizacion.js"></script>
 </body>
 </html>
