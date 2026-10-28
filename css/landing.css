@@ -264,6 +264,13 @@
     margin-top: 0.5rem;
 }
 
+/* ---------- Diagrama de organización ---------- */
+.diagrama {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+}
+.diagrama svg { width: 100%; height: auto; display: block; }
+
 /* ---------- Contacto ---------- */
 .contacto-grid {
     display: grid;
