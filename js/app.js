@@ -222,6 +222,7 @@ function bindEvents() {
 async function init() {
     els.results = $('resultsContainer');
     wireJoinButtons();
+    wireSocialLinks();
     els.search = $('searchInput');
     els.year = $('yearSelect');
     els.role = $('roleSelect');
@@ -279,4 +280,19 @@ function wireJoinButtons() {
             a.style.display = 'none';
         }
     });
+}
+
+function wireSocialLinks() {
+    const el = document.getElementById('socialLinks');
+    if (!el) return;
+    const s = window.SITE_CONFIG && window.SITE_CONFIG.social;
+    if (!s) return;
+    const items = [];
+    if (s.instagram) {
+        items.push(`<a href="${s.instagram}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>`);
+    }
+    if (s.linkedin) {
+        items.push(`<a href="${s.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>`);
+    }
+    el.innerHTML = items.join('');
 }
