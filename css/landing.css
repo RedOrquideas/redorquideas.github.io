@@ -40,28 +40,29 @@
 }
 
 /* ---------- Orquídea animada ---------- */
-.hero-visual { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+.hero-visual { display: flex; flex-direction: column; align-items: center; gap: 1rem; position: relative; }
 
 .orchid { width: 100%; max-width: 480px; height: auto; }
 .orchid svg { width: 100%; height: auto; display: block; }
 
 .anim-toggle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 34px;
+    height: 34px;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: none;
+    justify-content: center;
+    background: var(--white);
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    color: var(--muted);
-    font-family: var(--font-display);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    padding: 0.45rem 0.9rem;
+    color: var(--purple);
     cursor: pointer;
+    font-size: 0.85rem;
 }
-.anim-toggle:hover { color: var(--purple); border-color: var(--purple); }
-.anim-toggle[aria-pressed="true"] { color: var(--purple); }
+.anim-toggle:hover { border-color: var(--purple); }
+.anim-toggle[aria-pressed="true"] { color: var(--ink); }
 
 /* ---------- Secciones ---------- */
 .section { padding: var(--section-pad) 0; }
@@ -221,6 +222,52 @@
 .cta-final .btn-outline { color: #fff; border-color: rgba(255,255,255,0.6); }
 .cta-final .btn-outline:hover { background: #fff; color: var(--purple); }
 
+/* ---------- Contacto ---------- */
+.contacto-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+.contacto-block {
+    border-top: 1px solid var(--line);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.contacto-label {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 0.5rem;
+}
+
+.contacto-email {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.25rem;
+}
+.contacto-email:hover { color: var(--purple); }
+
+.contacto-social { display: flex; flex-direction: column; gap: 0.7rem; }
+.contacto-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1rem;
+}
+.contacto-social a:hover { color: var(--purple); }
+.contacto-social i { width: 1.5rem; color: var(--purple); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
@@ -234,6 +281,7 @@
     .estructura-item:nth-child(3) { border-left: 0; }
     .contexto-grid { grid-template-columns: 1fr; }
     .acta-inner { grid-template-columns: 1fr; }
+    .contacto-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {

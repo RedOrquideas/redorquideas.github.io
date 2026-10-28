@@ -117,6 +117,24 @@ img { max-width: 100%; height: auto; display: block; }
     margin: 0;
 }
 
+/* ---------- Cabecera de páginas internas ---------- */
+.page-hero {
+    background: var(--lavender);
+    border-bottom: 1px solid var(--line);
+    padding: clamp(2.75rem, 6vw, 4.5rem) 0;
+}
+
+.page-hero h1 { margin-bottom: 1rem; }
+
+.page-hero .lede {
+    max-width: 60ch;
+    color: var(--ink);
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    line-height: 1.65;
+}
+
+.page-main { padding: var(--section-pad) 0; }
+
 /* ---------- Botones (rectilíneos) ---------- */
 .btn {
     display: inline-flex;
@@ -249,7 +267,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
+    grid-template-columns: 1.5fr 1fr 1fr;
     gap: 2.5rem;
     padding-bottom: 2.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
@@ -280,19 +298,17 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-links a { color: #b7b3c4; text-decoration: none; font-size: 0.9rem; }
 .footer-links a:hover { color: #fff; }
 
-.social-links { display: flex; gap: 0.7rem; margin-top: 1.25rem; }
+.social-links { display: flex; flex-direction: column; gap: 0.6rem; margin-top: 1rem; }
 .social-links a {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 0;
-    color: #fff;
+    gap: 0.6rem;
+    color: #d9d6e2;
     text-decoration: none;
+    font-size: 0.92rem;
 }
-.social-links a:hover { background: var(--purple); border-color: var(--purple); }
+.social-links a:hover { color: #fff; }
+.social-links i { width: 1.25rem; text-align: center; color: #c9a3dd; }
 
 .footer-bottom {
     display: flex;
@@ -309,6 +325,8 @@ img { max-width: 100%; height: auto; display: block; }
    ========================================================= */
 @media (max-width: 860px) {
     .nav-toggle { display: inline-flex; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
 
     .nav-menu {
         position: absolute;

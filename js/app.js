@@ -44,7 +44,7 @@
             '<div class="dir-stat"><div class="dir-stat-value">' + doctoras + '</div><div class="dir-stat-label">Doctoras</div></div>' +
             '<div class="dir-stat"><div class="dir-stat-value">' + jovenes + '</div><div class="dir-stat-label">Jóvenes investigadoras</div></div>' +
             '<div class="dir-stat"><div class="dir-stat-value">' + state.years.length + '</div><div class="dir-stat-label">Convocatorias</div></div>';
-        els.statsNote.textContent = 'Fuente: datos del Programa Orquídeas de Minciencias (convocatorias 2023–2025). Las cifras corresponden a registros del directorio.';
+        els.statsNote.textContent = 'Fuente: Programa Orquídeas de Minciencias (convocatorias 2023–2025). Los registros corresponden a beneficiarias del programa; la pertenencia a Red OCTeI se verifica de forma independiente.';
     }
 
     function applyFilters() {
@@ -297,25 +297,6 @@
         }).join('');
     }
 
-    function wireJoinButtons() {
-        var url = window.SITE_CONFIG && window.SITE_CONFIG.formUrl;
-        document.querySelectorAll('[data-join]').forEach(function (a) {
-            if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
-            else { a.style.display = 'none'; }
-        });
-    }
-
-    function wireSocialLinks() {
-        var el = document.getElementById('socialLinks');
-        if (!el) return;
-        var s = window.SITE_CONFIG && window.SITE_CONFIG.social;
-        if (!s) return;
-        var items = [];
-        if (s.instagram) items.push('<a href="' + s.instagram + '" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>');
-        if (s.linkedin) items.push('<a href="' + s.linkedin + '" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>');
-        el.innerHTML = items.join('');
-    }
-
     async function init() {
         els.results = $('resultsContainer');
         els.search = $('searchInput');
@@ -337,8 +318,6 @@
         els.modalTitle = $('modalTitle');
         els.modalClose = els.modal.querySelector('.modal-close');
 
-        wireJoinButtons();
-        wireSocialLinks();
         bindEvents();
         initCombobox();
         initModal();
