@@ -1,0 +1,338 @@
+/* =========================================================
+   Red OCTeI — Sistema de diseño base
+   Editorial científico · retícula · tipografía · navegación
+   ========================================================= */
+
+:root {
+    /* Identidad institucional */
+    --purple: #7C0799;
+    --green: #104710;
+    --black: #000000;
+    --white: #FFFFFF;
+    --lavender: #F8F5FA;
+    --graphite: #242333;
+    --line: #E6E2E9;
+
+    /* Texto */
+    --ink: #191522;
+    --muted: #5A5664;
+
+    /* Tipografía */
+    --font-display: 'Montserrat', system-ui, sans-serif;
+    --font-body: 'Open Sans', system-ui, sans-serif;
+
+    /* Espaciado base */
+    --space: 1.5rem;
+    --section-pad: clamp(4rem, 9vw, 7rem);
+
+    /* Layout */
+    --max: 1240px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+
+    /* Radios: rectilíneos por defecto */
+    --radius: 0px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--black);
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2.5rem, 5.5vw, 4rem); font-weight: 800; }
+h2 { font-size: clamp(1.75rem, 3.2vw, 2.5rem); font-weight: 700; }
+h3 { font-size: clamp(1.1rem, 1.6vw, 1.375rem); font-weight: 700; }
+
+p { margin: 0 0 1.25rem; }
+
+a { color: var(--purple); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+::selection { background: var(--purple); color: #fff; }
+
+:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    background: var(--purple);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    z-index: 200;
+    text-decoration: none;
+    font-weight: 600;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Contenedor y retícula ---------- */
+.container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: clamp(1rem, 2.5vw, 2rem);
+    row-gap: 2.5rem;
+}
+
+/* ---------- Etiquetas y microtipografía ---------- */
+.eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--purple);
+}
+
+/* ---------- Línea divisoria ---------- */
+.rule {
+    border: 0;
+    border-top: 1px solid var(--line);
+    margin: 0;
+}
+
+/* ---------- Botones (rectilíneos) ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+}
+
+.btn-primary { background: var(--purple); color: #fff; }
+.btn-primary:hover { background: #5d0674; }
+
+.btn-green { background: var(--green); color: #fff; }
+.btn-green:hover { background: #0a330a; }
+
+.btn-outline { background: transparent; color: var(--purple); border-color: var(--purple); }
+.btn-outline:hover { background: var(--purple); color: #fff; }
+
+.btn-invert { background: var(--white); color: var(--purple); }
+.btn-invert:hover { background: var(--lavender); }
+
+/* =========================================================
+   Encabezado y navegación
+   ========================================================= */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--black);
+}
+
+.brand-logo { height: 44px; width: auto; }
+
+.brand-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+}
+
+.brand-tag {
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+
+.nav-menu a {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-menu a:hover { color: var(--purple); }
+
+.nav-menu a[aria-current] { color: var(--purple); border-bottom-color: var(--purple); }
+
+.nav-cta {
+    background: var(--purple);
+    color: #fff !important;
+    padding: 0.55rem 1.2rem;
+    border-bottom: 0 !important;
+}
+.nav-cta:hover { background: #5d0674; color: #fff !important; }
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.5rem 0.9rem;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+/* =========================================================
+   Pie de página
+   ========================================================= */
+.site-footer {
+    background: var(--graphite);
+    color: #d9d6e2;
+    padding: 4rem 0 2.5rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-logo { height: 64px; width: auto; }
+
+.site-footer .brand-name { color: #fff; }
+
+.footer-tagline {
+    color: #b7b3c4;
+    font-size: 0.9rem;
+    max-width: 40ch;
+    margin-top: 1rem;
+}
+
+.footer-col-title {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.footer-links { list-style: none; margin: 0; padding: 0; }
+.footer-links li { margin-bottom: 0.5rem; }
+.footer-links a { color: #b7b3c4; text-decoration: none; font-size: 0.9rem; }
+.footer-links a:hover { color: #fff; }
+
+.social-links { display: flex; gap: 0.7rem; margin-top: 1.25rem; }
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0;
+    color: #fff;
+    text-decoration: none;
+}
+.social-links a:hover { background: var(--purple); border-color: var(--purple); }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #8f8b9e;
+}
+
+/* =========================================================
+   Navegación móvil
+   ========================================================= */
+@media (max-width: 860px) {
+    .nav-toggle { display: inline-flex; }
+
+    .nav-menu {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        padding: 0.5rem var(--gutter) 1.25rem;
+    }
+
+    .site-nav.open .nav-menu { display: flex; }
+
+    .nav-menu a {
+        padding: 0.9rem 0;
+        border-bottom: 1px solid var(--line);
+    }
+    .nav-menu a.nav-cta {
+        margin-top: 0.9rem;
+        text-align: center;
+        border-bottom: 0 !important;
+    }
+}

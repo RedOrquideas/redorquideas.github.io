@@ -1,55 +1,59 @@
-async function init() {
-    const statsEl = document.getElementById('stats');
+(function () {
+    'use strict';
+
+    function wireJoinButtons() {
+        var url = window.SITE_CONFIG && window.SITE_CONFIG.formUrl;
+        document.querySelectorAll('[data-join]').forEach(function (a) {
+            if (url) {
+                a.href = url;
+                a.target = '_blank';
+                a.rel = 'noopener';
+            } else {
+                a.style.display = 'none';
+            }
+        });
+    }
+
+    function wireSocialLinks() {
+        var el = document.getElementById('socialLinks');
+        if (!el) return;
+        var s = window.SITE_CONFIG && window.SITE_CONFIG.social;
+        if (!s) return;
+        var items = [];
+        if (s.instagram) {
+            items.push('<a href="' + s.instagram + '" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>');
+        }
+        if (s.linkedin) {
+            items.push('<a href="' + s.linkedin + '" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>');
+        }
+        el.innerHTML = items.join('');
+    }
+
+    function wireAnimToggle() {
+        var toggle = document.getElementById('animToggle');
+        var svg = document.querySelector('.orchid-anim');
+        var label = document.getElementById('animToggleLabel');
+        if (!toggle || !svg) return;
+        var icon = toggle.querySelector('i');
+
+        var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduced) {
+            toggle.hidden = true;
+            return;
+        }
+
+        toggle.addEventListener('click', function () {
+            var paused = svg.classList.toggle('paused');
+            toggle.setAttribute('aria-pressed', String(paused));
+            toggle.setAttribute('aria-label', paused
+                ? 'Reanudar la animación de la orquídea'
+                : 'Pausar la animación de la orquídea');
+            if (label) label.textContent = paused ? 'Reanudar animación' : 'Pausar animación';
+            if (icon) icon.className = paused ? 'fa-solid fa-play' : 'fa-solid fa-pause';
+        });
+    }
+
     wireJoinButtons();
     wireSocialLinks();
-    if (!statsEl) return;
-
-    try {
-        const res = await fetch('data.json');
-        const data = await res.json();
-        const docs = data.doctors;
-        const doctoras = docs.filter(x => x.role === 'Doctora').length;
-        const jovenes = docs.length - doctoras;
-        const years = [...new Set(docs.map(x => x.year))].sort((a, b) => b - a);
-
-        statsEl.innerHTML = `
-            <div class="stat"><span class="stat-value">${docs.length}</span><span class="stat-label">Mujeres</span></div>
-            <div class="stat"><span class="stat-value">${docs.length}</span><span class="stat-label">Proyectos</span></div>
-            <div class="stat"><span class="stat-value">${doctoras}</span><span class="stat-label">Doctoras</span></div>
-            <div class="stat"><span class="stat-value">${jovenes}</span><span class="stat-label">Jóvenes investigadoras</span></div>
-            <div class="stat"><span class="stat-value">${years.length}</span><span class="stat-label">Convocatorias</span></div>
-        `;
-    } catch (err) {
-        statsEl.innerHTML = '';
-    }
-}
-
-function wireJoinButtons() {
-    const url = window.SITE_CONFIG && window.SITE_CONFIG.formUrl;
-    document.querySelectorAll('[data-join]').forEach(a => {
-        if (url) {
-            a.href = url;
-            a.target = '_blank';
-            a.rel = 'noopener';
-        } else {
-            a.style.display = 'none';
-        }
-    });
-}
-
-function wireSocialLinks() {
-    const el = document.getElementById('socialLinks');
-    if (!el) return;
-    const s = window.SITE_CONFIG && window.SITE_CONFIG.social;
-    if (!s) return;
-    const items = [];
-    if (s.instagram) {
-        items.push(`<a href="${s.instagram}" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>`);
-    }
-    if (s.linkedin) {
-        items.push(`<a href="${s.linkedin}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>`);
-    }
-    el.innerHTML = items.join('');
-}
-
-init();
+    wireAnimToggle();
+})();

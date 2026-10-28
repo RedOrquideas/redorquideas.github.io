@@ -8,107 +8,137 @@
     <link rel="icon" type="image/png" href="img/brand/logo-orchid-color.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="header-inner container">
-            <a class="brand" href="index.html">
-                <img class="brand-logo" src="img/brand/logo-orchid-color.png" alt="Red OCTeI">
-                <span class="brand-text">
-                    <span class="brand-name">Red OCTeI</span>
-                    <span class="brand-tag">Orquídeas en Ciencia, Tecnología e Innovación</span>
-                </span>
-            </a>
-            <div class="header-actions">
-                <a class="home-link" href="index.html"><i class="fa-solid fa-arrow-left"></i> Inicio</a>
-                <a class="join-link" href="#" data-join><i class="fa-solid fa-user-plus"></i> Inscríbete</a>
-                <button class="filter-toggle" id="filterToggle" type="button" aria-expanded="false">
-                    <i class="fa-solid fa-sliders"></i> Filtros y búsqueda
-                    <i class="fa-solid fa-chevron-down" id="filterIcon"></i>
-                </button>
-            </div>
-        </div>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-        <div class="filters-bar" id="filtersBar">
+    <header class="site-nav" id="siteHeader">
+        <div class="nav-inner">
+            <a class="brand" href="index.html">
+                <img class="brand-logo" src="img/brand/logo-orchid-color.png" alt="">
+                <span class="brand-name">Red OCTeI</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteMenu">
+                <i class="fa-solid fa-bars" aria-hidden="true"></i> Menú
+            </button>
+            <nav class="nav-menu" id="siteMenu" aria-label="Navegación principal">
+                <a href="index.html#quienes-somos">La Red</a>
+                <a href="index.html#objetivos">Objetivos</a>
+                <a href="index.html#principios">Principios</a>
+                <a href="index.html#estructura">Organización</a>
+                <a href="directorio.html" aria-current="page">Directorio</a>
+                <a class="nav-cta" href="#" data-join>Inscríbete</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="contenido">
+
+        <section class="dir-hero">
+            <div class="container">
+                <span class="eyebrow">Directorio</span>
+                <h1>Investigadoras y proyectos</h1>
+                <p class="desc">
+                    Perfiles profesionales y proyectos de las beneficiarias del Programa Orquídeas de Minciencias, destacando su liderazgo científico y su contribución al desarrollo del país.
+                </p>
+                <div class="dir-stats" id="stats"></div>
+                <p class="stats-note" id="statsNote"></p>
+            </div>
+        </section>
+
+        <section class="dir-filters" aria-label="Filtros y búsqueda">
             <div class="container">
                 <div class="filters-grid">
                     <div class="field">
-                        <label for="searchInput">Búsqueda general</label>
-                        <div class="input-icon">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" id="searchInput" placeholder="Nombre, proyecto...">
-                        </div>
+                        <label for="searchInput">Búsqueda</label>
+                        <input type="search" id="searchInput" placeholder="Nombre, proyecto o perfil...">
                     </div>
                     <div class="field">
-                        <label for="yearSelect">Año</label>
-                        <select id="yearSelect"><option value="">Todos</option></select>
+                        <label for="yearSelect">Convocatoria</label>
+                        <select id="yearSelect"><option value="">Todas</option></select>
                     </div>
                     <div class="field">
-                        <label for="roleSelect">Categoría / Rol</label>
+                        <label for="roleSelect">Categoría</label>
                         <select id="roleSelect"><option value="">Todas</option></select>
                     </div>
                     <div class="field">
-                        <label for="keywordSelect">Palabra clave</label>
-                        <select id="keywordSelect"><option value="">Todas</option></select>
+                        <label for="keywordInput">Palabra clave</label>
+                        <div class="combobox">
+                            <input type="text" id="keywordInput" role="combobox" aria-expanded="false" aria-controls="keywordList" aria-autocomplete="list" placeholder="Buscar palabra clave..." autocomplete="off">
+                            <ul class="combobox-list" id="keywordList" role="listbox" aria-label="Palabras clave" hidden></ul>
+                        </div>
                     </div>
-                    <div class="field view-toggle">
-                        <div class="btn-group" role="group" aria-label="Vista">
-                            <button class="view-btn active" id="btnGrid" data-view="grid" type="button"><i class="fa-solid fa-table-cells-large"></i> Cuadrícula</button>
-                            <button class="view-btn" id="btnList" data-view="list" type="button"><i class="fa-solid fa-list"></i> Lista</button>
+                    <div class="field">
+                        <span class="label" id="viewLabel">Vista</span>
+                        <div class="view-toggle" role="group" aria-labelledby="viewLabel">
+                            <button class="view-btn" id="btnGrid" type="button" aria-pressed="true"><i class="fa-solid fa-table-cells-large" aria-hidden="true"></i> Cuadrícula</button>
+                            <button class="view-btn" id="btnList" type="button" aria-pressed="false"><i class="fa-solid fa-list" aria-hidden="true"></i> Lista</button>
                         </div>
                     </div>
                 </div>
                 <div class="filters-meta">
-                    <span><strong id="countDisplay">0</strong> resultados</span>
+                    <span id="countDisplay" aria-live="polite"></span>
                     <button class="link-btn" id="resetBtn" type="button">Limpiar filtros</button>
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Directorio Red OCTeI</h1>
-            <p>Reúne los perfiles profesionales y los proyectos de las beneficiarias del Programa Orquídeas MinCiencias, destacando su liderazgo científico y su contribución al desarrollo del país. Facilita la conexión entre investigadoras, sector productivo y actores del ecosistema de innovación.</p>
-            <div class="stats" id="stats"></div>
+        <div class="dir-main">
+            <div class="container">
+                <div class="results" id="resultsContainer"></div>
+                <div class="no-results" id="noResults" hidden>
+                    <h3>No se encontraron resultados</h3>
+                    <p>Intenta ajustar los filtros o la búsqueda.</p>
+                </div>
+                <nav class="pagination" id="pagination" aria-label="Paginación de resultados"></nav>
+            </div>
         </div>
-    </section>
 
-    <main class="container">
-        <div class="results" id="resultsContainer"></div>
-        <div class="no-results" id="noResults" hidden>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <h3>No se encontraron resultados</h3>
-            <p>Intenta ajustar los filtros o la búsqueda.</p>
-        </div>
     </main>
-
-    <button class="back-to-top" id="btnBackToTop" type="button" aria-label="Volver arriba">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
-
-    <div class="modal" id="imgModal" aria-hidden="true">
-        <div class="modal-backdrop" data-close></div>
-        <div class="modal-content">
-            <button class="modal-close" type="button" data-close aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
-            <img src="" id="modalImgDisplay" alt="">
-        </div>
-    </div>
 
     <footer class="site-footer">
         <div class="container">
-            <img class="footer-logo" src="img/brand/logo-orchid-white.png" alt="Red OCTeI">
-            <div class="social-links" id="socialLinks"></div>
-            <p>Red OCTeI · Orquídeas en Ciencia, Tecnología e Innovación</p>
-            <p class="muted">Información proveniente del Programa Orquídeas del Ministerio de Ciencia, Tecnología e Innovación.</p>
+            <div class="footer-grid">
+                <div>
+                    <img class="footer-logo" src="img/brand/logo-orchid-white.png" alt="">
+                    <div class="brand-name" style="margin-top:0.5rem;">Red OCTeI</div>
+                    <p class="footer-tagline">Red de conocimiento y aprendizaje autónoma de mujeres científicas, articulada con el Sistema Nacional de Ciencia, Tecnología e Innovación.</p>
+                    <div class="social-links" id="socialLinks"></div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Enlaces</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html#quienes-somos">La Red</a></li>
+                        <li><a href="index.html#objetivos">Objetivos</a></li>
+                        <li><a href="index.html#principios">Principios</a></li>
+                        <li><a href="index.html#estructura">Organización</a></li>
+                        <li><a href="directorio.html">Directorio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Red OCTeI · Orquídeas en Ciencia, Tecnología e Innovación</span>
+                <span>Información proveniente del Programa Orquídeas de Minciencias</span>
+            </div>
         </div>
     </footer>
 
+    <div class="modal" id="imgModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-dialog">
+            <button class="modal-close" type="button" data-close aria-label="Cerrar"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <img src="" id="modalImg" alt="">
+            <div class="modal-caption" id="modalTitle"></div>
+        </div>
+    </div>
+
     <script src="js/config.js"></script>
+    <script src="js/nav.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
