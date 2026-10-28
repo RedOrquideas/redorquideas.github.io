@@ -62,7 +62,7 @@ h1, h2, h3 {
 }
 
 .brand-logo {
-    height: 44px;
+    height: 56px;
     width: auto;
     display: block;
 }
@@ -225,7 +225,7 @@ h1, h2, h3 {
 }
 
 .core img {
-    width: 72px;
+    width: 92px;
     height: auto;
     display: block;
 }
@@ -236,7 +236,7 @@ h1, h2, h3 {
     height: 22px;
     border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 0 5px rgba(213, 63, 140, 0.25);
+    box-shadow: 0 0 0 5px rgba(16, 71, 16, 0.3);
 }
 
 .dot-1 { top: -11px; left: 50%; transform: translateX(-50%); }
@@ -289,10 +289,12 @@ h1, h2, h3 {
 }
 
 .info-card p, .conv-card p {
-    margin: 0;
+    margin: 0 0 0.7rem;
     color: var(--muted);
     font-size: 0.92rem;
 }
+
+.info-card p:last-child, .conv-card p:last-child { margin-bottom: 0; }
 
 .conv-year {
     display: inline-block;
@@ -340,7 +342,7 @@ h1, h2, h3 {
 }
 
 .footer-logo {
-    height: 56px;
+    height: 80px;
     width: auto;
     display: block;
     margin: 0 auto 0.75rem;
@@ -378,11 +380,103 @@ h1, h2, h3 {
 .site-footer p { margin: 0.2rem 0; }
 .site-footer .muted { color: #718096; font-size: 0.8rem; }
 
+/* Layout helpers */
+.cards-row.two { grid-template-columns: repeat(2, 1fr); }
+
+/* Objetivos */
+.obj-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.obj-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    text-align: left;
+}
+
+.obj-item i {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+}
+
+.obj-item p { margin: 0; color: var(--text); }
+
+/* Principios */
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+
+.principle-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 1.4rem;
+    box-shadow: 0 2px 6px rgba(45, 55, 72, 0.05);
+}
+
+.principle-card h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+    color: var(--primary-dark);
+}
+
+.principle-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+/* Acta */
+.acta-banner {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.acta-banner i {
+    font-size: 2.4rem;
+    margin-bottom: 0.8rem;
+    color: #E9D8FD;
+}
+
+.acta-banner h2 {
+    color: #fff;
+    font-size: 1.9rem;
+    font-weight: 800;
+    margin: 0 0 1rem;
+}
+
+.acta-banner p {
+    max-width: 760px;
+    margin: 0 auto;
+    opacity: 0.96;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; padding: 3rem 1.25rem; }
     .hero-visual { display: none; }
     .hero h1 { font-size: 2.5rem; }
-    .cards-row { grid-template-columns: 1fr; }
+    .cards-row, .cards-row.two { grid-template-columns: 1fr; }
+    .principles-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-links a:not(.nav-cta) { display: none; }
+}
+
+@media (max-width: 640px) {
+    .principles-grid { grid-template-columns: 1fr; }
+    .brand-tag { display: none; }
 }

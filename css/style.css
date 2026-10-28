@@ -92,7 +92,7 @@ body {
 }
 
 .brand-logo {
-    height: 44px;
+    height: 56px;
     width: auto;
     display: block;
 }
@@ -589,7 +589,7 @@ main { padding: 2rem 1.25rem 4rem; }
 }
 
 .footer-logo {
-    height: 56px;
+    height: 80px;
     width: auto;
     display: block;
     margin: 0 auto 0.75rem;
