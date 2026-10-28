@@ -367,9 +367,9 @@
 .error {
     padding: 3rem 1rem;
     text-align: center;
-    color: #8a2b2b;
-    border: 1px solid #e6c9c9;
-    background: #fbf4f4;
+    color: #000000;
+    border: 1px solid #000000;
+    background: #FFFFFF;
 }
 
 /* ---------- Modal de imagen ---------- */

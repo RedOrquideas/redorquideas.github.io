@@ -237,14 +237,14 @@
     border-top: 1px solid var(--line);
 }
 .cta-note {
-    color: #e4f0e4;
+    color: #FFFFFF;
     max-width: 52ch;
     margin: 0 auto 1.75rem;
     font-size: 1.05rem;
 }
 .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; }
 .cta-final .btn-invert { color: var(--green); }
-.cta-final .btn-outline { color: #fff; border-color: rgba(255,255,255,0.7); }
+.cta-final .btn-outline { color: #fff; border-color: #FFFFFF; }
 .cta-final .btn-outline:hover { background: #fff; color: var(--green); }
 
 /* ---------- Texto + fotografía ---------- */
