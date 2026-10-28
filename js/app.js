@@ -103,11 +103,12 @@
             '</div>' +
             '<div class="card-body">' +
                 '<div class="card-meta"><span>' + esc(doc.role) + '</span><span aria-hidden="true">·</span><span>' + doc.year + '</span></div>' +
-                '<h2 class="card-name">' + esc(doc.name) + '</h2>' +
+                '<h2 class="card-name"><a href="perfil.html?id=' + doc.id + '">' + esc(doc.name) + '</a></h2>' +
                 '<p class="proposal">' + esc(doc.proposal || '') + '</p>' +
                 '<p class="profile">' + truncated(doc.profile, 140, doc.id) + '</p>' +
                 '<div class="tags">' + tags + '</div>' +
                 '<div class="card-actions">' +
+                    '<a class="btn btn-outline" href="perfil.html?id=' + doc.id + '">Ver perfil</a>' +
                     (doc.cv_link ? '<a class="btn btn-outline" href="' + esc(doc.cv_link) + '" target="_blank" rel="noopener">CvLAC</a>' : '') +
                     (doc.email ? '<a class="btn btn-primary" href="mailto:' + esc(doc.email) + '">Contactar</a>' : '') +
                 '</div>' +
