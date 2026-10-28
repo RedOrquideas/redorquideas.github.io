@@ -23,7 +23,7 @@
 
     /* Espaciado base */
     --space: 1.5rem;
-    --section-pad: clamp(4rem, 9vw, 7rem);
+    --section-pad: clamp(3rem, 6vw, 4.5rem);
 
     /* Layout */
     --max: 1240px;
@@ -121,7 +121,7 @@ img { max-width: 100%; height: auto; display: block; }
 .page-hero {
     background: var(--lavender);
     border-bottom: 1px solid var(--line);
-    padding: clamp(2.75rem, 6vw, 4.5rem) 0;
+    padding: clamp(2rem, 4vw, 3.5rem) 0;
 }
 
 .page-hero h1 { margin-bottom: 1.25rem; }
@@ -134,7 +134,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 /* Encabezado centrado (solo texto): bloque completo centrado */
-.page-hero--center .container { max-width: 860px; }
+.page-hero--center .container { max-width: 760px; }
+.page-hero--center .lede { max-width: none; }
 
 /* Encabezado dividido (texto + imagen): dos columnas equilibradas */
 .page-hero-split {
