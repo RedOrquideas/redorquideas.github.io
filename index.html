@@ -158,6 +158,38 @@
             </div>
         </section>
 
+        <section class="comunicados section" id="comunicados">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Comunicados</span>
+                    <h2>Último pronunciamiento</h2>
+                </div>
+                <div class="comunicado-card">
+                    <div class="comunicado-copy">
+                        <span class="comunicado-fecha">6 de noviembre de 2026</span>
+                        <h3 class="comunicado-titulo">La ciencia necesita su propio espacio en el Estado</h3>
+                        <p class="comunicado-lead">Pronunciamiento público de la Red OCTeI, la OWSD Colombia, el GDC y REDACOLMEX sobre el lugar de la ciencia, la tecnología y la innovación en la política de Estado.</p>
+                        <div class="comunicado-actions">
+                            <button class="btn btn-green" type="button" data-comunicado>
+                                <i class="fa-solid fa-file-lines" aria-hidden="true"></i> Ver comunicado
+                            </button>
+                            <span class="comunicado-socials">
+                                <span class="comunicado-social-label">Síguenos</span>
+                                <a class="social-btn" href="#" data-social="instagram" target="_blank" rel="noopener" aria-label="Instagram de Red OCTeI"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                                <a class="social-btn" href="#" data-social="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn de Red OCTeI"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="comunicado-preview">
+                        <button class="comunicado-preview-btn" type="button" data-comunicado aria-label="Abrir el comunicado">
+                            <img src="img/comunicados/comunicado-1.png" alt="">
+                            <span class="comunicado-preview-tag"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i> Leer comunicado</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="cta-final">
             <div class="container">
                 <p class="cta-note">Conoce el directorio de investigadoras y proyectos, o inscríbete a la Red.</p>
@@ -190,6 +222,30 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal" id="comunicadoModal" hidden aria-hidden="true">
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="comunicadoModalTitle">
+            <header class="modal-head">
+                <div>
+                    <span class="eyebrow">Comunicado · 6 de noviembre de 2026</span>
+                    <h2 id="comunicadoModalTitle">La ciencia necesita su propio espacio en el Estado</h2>
+                </div>
+                <button class="modal-close" type="button" data-close aria-label="Cerrar">
+                    <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                </button>
+            </header>
+            <div class="modal-body">
+                <img src="img/comunicados/comunicado-1.png" alt="Comunicado, página 1 de 7">
+                <img src="img/comunicados/comunicado-2.png" alt="Comunicado, página 2 de 7">
+                <img src="img/comunicados/comunicado-3.png" alt="Comunicado, página 3 de 7">
+                <img src="img/comunicados/comunicado-4.png" alt="Comunicado, página 4 de 7">
+                <img src="img/comunicados/comunicado-5.png" alt="Comunicado, página 5 de 7">
+                <img src="img/comunicados/comunicado-6.png" alt="Comunicado, página 6 de 7">
+                <img src="img/comunicados/comunicado-7.png" alt="Comunicado, página 7 de 7">
+            </div>
+        </div>
+    </div>
 
     <script src="js/config.js"></script>
     <script src="js/nav.js"></script>
